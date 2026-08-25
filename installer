@@ -9,11 +9,21 @@ mkdir -p "$WEB_DIR"
 
 show_banner() {
     clear
+    local width
+    width=$(tput cols 2>/dev/null || echo 40)
+
     echo -e "\e[1;36m"
-    echo "================================"
-    echo "      M I R Z A A"
-    echo "      I N S T A L L E R"
-    echo "================================"
+    if [ "$width" -ge 32 ]; then
+        echo "================================"
+        echo "      M I R Z A A"
+        echo "      I N S T A L L E R"
+        echo "================================"
+    else
+        echo "----------------"
+        echo " MIRZAA"
+        echo " INSTALLER"
+        echo "----------------"
+    fi
     echo -e "\e[0m"
 }
 
